@@ -28,21 +28,12 @@
 	$(function(){
 		//Login
 		$("#submitBtn").click(function(){
-			if($("#radio-2").attr("checked") && "${systemInfo.forbidStudent}" == 1){
-				$.messager.alert("Notice", "Students cannot log in to the system!", "warning");
-				return;
-			}
-			if($("#radio-3").attr("checked") && "${systemInfo.forbidTeacher}" == 1){
-				$.messager.alert("Notice", "Teachers cannot log in to the system!", "warning");
-				return;
-			}
-			
 			var data = $("#form").serialize();
 			$.ajax({
 				type: "post",
 				url: "LoginServlet?method=Login",
 				data: data, 
-				dataType: "text", //返回数据类型
+				dataType: "text", 
 				success: function(msg){
 					if("admin" == msg){
 						window.location.href = "SystemServlet?method=toAdminView";
@@ -63,13 +54,13 @@
 		});
 	})
 </script> 
-<title>Login|学生成績管理システム</title>
-<meta name="keywords" content="学生成績管理システム">
+<title>Login|Students Management System</title>
+<meta name="keywords" content="Student Info Management System">
 </head>
 <body>
 
 <div class="header" style="padding: 0;">
-	<h2 style="color: white; width: 400px; height: 60px; line-height: 60px; margin: 0 0 0 30px; padding: 0;">学生成績管理システム</h2>
+	<h2 style="color: white; width: 600px; height: 60px; line-height: 60px; margin: 0 0 0 30px; padding: 0;">Students Management System</h2>
 </div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
@@ -110,7 +101,7 @@
     </form>
   </div>
 </div>
-<div class="footer">Copyright 2019 4&nbsp; koshiryo </div>
+<div class="footer">Copyright 2019 &nbsp; KoshiRyo </div>
 
 
 </body>
