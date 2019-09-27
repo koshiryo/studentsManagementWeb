@@ -22,13 +22,11 @@ public class AdminDao extends BaseDao {
 				return admin;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
 	public boolean editPassword(Admin admin,String newPassword) {
-		// TODO Auto-generated method stub
 		String sql = "update s_admin set password = '"+newPassword+"' where id = " + admin.getId();
 		return update(sql);
 	}
