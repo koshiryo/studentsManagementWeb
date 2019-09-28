@@ -7,7 +7,7 @@ public class Student {
 	private String sn;//student name
 	private String name;
 	private String password;
-	private int clazzId;
+	private int classId;
 	private String sex = "Male";
 	private String mobile;
 	private String qq;
@@ -24,11 +24,11 @@ public class Student {
 	public void setSn(String sn) {
 		this.sn = sn;
 	}
-	public int getClazzId() {
-		return clazzId;
+	public int getClassId() {
+		return classId;
 	}
-	public void setClazzId(int clazzId) {
-		this.clazzId = clazzId;
+	public void setClassId(int classId) {
+		this.classId = classId;
 	}
 	public String getSex() {
 		return sex;
