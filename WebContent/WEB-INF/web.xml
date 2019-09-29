@@ -44,4 +44,14 @@
   	<url-pattern>/StudentServlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<description>班级信息管理</description>
+  	<servlet-name>ClazzServlet</servlet-name>
+  	<servlet-class>com.ischoolbar.programmer.servlet.ClazzServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClazzServlet</servlet-name>
+  	<url-pattern>/ClazzServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
