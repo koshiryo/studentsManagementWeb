@@ -68,7 +68,7 @@
 	        pageSize: 10,//每页显示的记录条数，默认为10 
 	        pageList: [10,20,30,50,100],//可以设置每页记录条数的列表 
 	        beforePageText: 'Page', 
-	        afterPageText: '    total {pages} pages', 
+	        afterPageText: '    Total {pages} pages', 
 	    }); 
 	    //设置工具类按钮
 	    $("#add").click(function(){
@@ -350,7 +350,7 @@
 		</c:if>
 		<div style="float: left;margin-top:4px;" class="datagrid-btn-separator" >&nbsp;&nbsp;Name：<input id="search_student_name" class="easyui-textbox" name="search_student_name" /></div>
 		<div style="margin-left: 10px;margin-top:4px;" >Class：<input id="clazzList" class="easyui-textbox" name="clazz" />
-			<a id="search-btn" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true">Search</a>
+			<a id="search-btn" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true">search</a>
 		</div>
 	
 	</div>
