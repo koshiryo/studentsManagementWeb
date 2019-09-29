@@ -19,6 +19,7 @@ import com.students.programmer.model.Clazz;
 import com.students.programmer.model.Page;
 
 public class ClazzServlet extends HttpServlet {
+	private static final long serialVersionUID = -3999298390590651233L;
 	public void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		doPost(request, response);
 	}

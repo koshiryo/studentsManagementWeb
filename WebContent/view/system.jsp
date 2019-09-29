@@ -25,7 +25,7 @@
 						<c:if test="${userType == 1 || userType == 3}">
 						{"menuid":"4","icon":"","menuname":"Class management",
 							"menus":[
-									{"menuid":"42","menuname":"Classes list","icon":"icon-house","url":"ClazzServlet?method=toClassListView"}
+									{"menuid":"42","menuname":"Classes list","icon":"icon-house","url":"ClazzServlet?method=toClazzListView"}
 								]
 						},
 						</c:if>
