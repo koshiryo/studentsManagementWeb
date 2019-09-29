@@ -31,21 +31,6 @@ public class StudentDao extends BaseDao {
 		sql += " where id = " + student.getId();
 		return update(sql);
 	}
-	public boolean setStudentPhoto(Student student) {
-		// TODO Auto-generated method stub
-		String sql = "update s_student set photo = ? where id = ?";
-		Connection connection = getConnection();
-		try {
-			PreparedStatement prepareStatement = connection.prepareStatement(sql);
-			prepareStatement.setBinaryStream(1, student.getPhoto());
-			prepareStatement.setInt(2, student.getId());
-			return prepareStatement.executeUpdate() > 0;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return update(sql);
-	}
 	public boolean deleteStudent(String ids) {
 		// TODO Auto-generated method stub
 		String sql = "delete from s_student where id in("+ids+")";
@@ -63,7 +48,6 @@ public class StudentDao extends BaseDao {
 				student.setMobile(resultSet.getString("mobile"));
 				student.setName(resultSet.getString("name"));
 				student.setPassword(resultSet.getString("password"));
-				student.setPhoto(resultSet.getBinaryStream("photo"));
 				student.setQq(resultSet.getString("qq"));
 				student.setSex(resultSet.getString("sex"));
 				student.setSn(resultSet.getString("sn"));
@@ -97,7 +81,6 @@ public class StudentDao extends BaseDao {
 				s.setMobile(resultSet.getString("mobile"));
 				s.setName(resultSet.getString("name"));
 				s.setPassword(resultSet.getString("password"));
-				s.setPhoto(resultSet.getBinaryStream("photo"));
 				s.setQq(resultSet.getString("qq"));
 				s.setSex(resultSet.getString("sex"));
 				s.setSn(resultSet.getString("sn"));
@@ -144,7 +127,6 @@ public class StudentDao extends BaseDao {
 				student.setPassword(resultSet.getString("password"));
 				student.setClazzId(resultSet.getInt("clazz_id"));
 				student.setMobile(resultSet.getString("mobile"));
-				student.setPhoto(resultSet.getBinaryStream("photo"));
 				student.setQq(resultSet.getString("qq"));
 				student.setSex(resultSet.getString("sex"));
 				student.setSn(resultSet.getString("sn"));

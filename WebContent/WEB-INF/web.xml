@@ -37,7 +37,7 @@
   <servlet>
   	<description>学生信息管理</description>
   	<servlet-name>StudentServlet</servlet-name>
-  	<servlet-class>om.students.programmer.servlet.StudentServlet</servlet-class>
+  	<servlet-class>com.students.programmer.servlet.StudentServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>StudentServlet</servlet-name>
@@ -47,7 +47,7 @@
   <servlet>
   	<description>班级信息管理</description>
   	<servlet-name>ClazzServlet</servlet-name>
-  	<servlet-class>com.ischoolbar.programmer.servlet.ClazzServlet</servlet-class>
+  	<servlet-class>com.students.programmer.servlet.ClazzServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>ClazzServlet</servlet-name>

@@ -1,17 +1,14 @@
 package com.students.programmer.model;
 
-import java.io.InputStream;
-
 public class Student {
 	private int id;
-	private String sn;//student name
+	private String sn;//student number
 	private String name;
 	private String password;
 	private int clazzId;
 	private String sex = "Male";
 	private String mobile;
 	private String qq;
-	private InputStream photo;//student photo
 	public int getId() {
 		return id;
 	}
@@ -47,12 +44,6 @@ public class Student {
 	}
 	public void setQq(String qq) {
 		this.qq = qq;
-	}
-	public InputStream getPhoto() {
-		return photo;
-	}
-	public void setPhoto(InputStream photo) {
-		this.photo = photo;
 	}
 	public String getName() {
 		return name;
