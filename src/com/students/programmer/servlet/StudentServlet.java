@@ -10,11 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.students.programmer.dao.StudentDao;
-import com.students.programmer.model.Student;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
+import com.students.programmer.dao.ClassDao;
+import com.students.programmer.dao.StudentDao;
+import com.students.programmer.model.Class;
+import com.students.programmer.model.Page;
+import com.students.programmer.model.Student;
+import com.students.programmer.util.SnGenerateUtil;
 
 public class StudentServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException{
@@ -90,13 +94,12 @@ public class StudentServlet extends HttpServlet {
 		Integer currentPage = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
 		Integer pageSize = request.getParameter("rows") == null ? 999 : Integer.parseInt(request.getParameter("rows"));
 		Integer class = request.getParameter("classid") == null ? 0 : Integer.parseInt(request.getParameter("classid"));
-		//��ȡ��ǰ��¼�û�����
+		
 		int userType = Integer.parseInt(request.getSession().getAttribute("userType").toString());
 		Student student = new Student();
 		student.setName(name);
-		student.setclassId(class);
+		student.setClassId(class);
 		if(userType == 2){
-			//�����ѧ����ֻ�ܲ鿴�Լ�����Ϣ
 			Student currentUser = (Student)request.getSession().getAttribute("user");
 			student.setId(currentUser.getId());
 		}
@@ -160,4 +163,3 @@ public class StudentServlet extends HttpServlet {
 		}
 	}
 }
-

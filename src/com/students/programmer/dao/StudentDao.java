@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.students.programmer.model.Admin;
+import com.students.programmer.model.Class;
+import com.students.programmer.model.Page;
 import com.students.programmer.model.Student;
-
-
+import com.students.programmer.util.StringUtil;
 
 public class StudentDao extends BaseDao {
 	public boolean addStudent(Student student){
@@ -160,4 +162,3 @@ public class StudentDao extends BaseDao {
 		return update(sql);
 	}
 }
-
