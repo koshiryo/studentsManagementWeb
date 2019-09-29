@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import com.students.programmer.dao.ClassDao;
+import com.students.programmer.dao.ClazzDao;
 import com.students.programmer.dao.StudentDao;
-import com.students.programmer.model.Class;
+import com.students.programmer.model.Clazz;
 import com.students.programmer.model.Page;
 import com.students.programmer.model.Student;
 import com.students.programmer.util.SnGenerateUtil;
@@ -67,9 +67,9 @@ public class StudentServlet extends HttpServlet {
 		String sex = request.getParameter("sex");
 		String mobile = request.getParameter("mobile");
 		String qq = request.getParameter("qq");
-		int classId = Integer.parseInt(request.getParameter("classid"));
+		int clazzId = Integer.parseInt(request.getParameter("clazzid"));
 		Student student = new Student();
-		student.setClassId(classId);
+		student.setClazzId(clazzId);
 		student.setMobile(mobile);
 		student.setName(name);
 		student.setId(id);
@@ -93,28 +93,28 @@ public class StudentServlet extends HttpServlet {
 		String name = request.getParameter("studentName");
 		Integer currentPage = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
 		Integer pageSize = request.getParameter("rows") == null ? 999 : Integer.parseInt(request.getParameter("rows"));
-		Integer class = request.getParameter("classid") == null ? 0 : Integer.parseInt(request.getParameter("classid"));
+		Integer clazz = request.getParameter("clazzid") == null ? 0 : Integer.parseInt(request.getParameter("clazzid"));
 		
 		int userType = Integer.parseInt(request.getSession().getAttribute("userType").toString());
 		Student student = new Student();
 		student.setName(name);
-		student.setClassId(class);
+		student.setClazzId(clazz);
 		if(userType == 2){
 			Student currentUser = (Student)request.getSession().getAttribute("user");
 			student.setId(currentUser.getId());
 		}
 		StudentDao studentDao = new StudentDao();
-		List<Student> classList = studentDao.getStudentList(student, new Page(currentPage, pageSize));
+		List<Student> clazzList = studentDao.getStudentList(student, new Page(currentPage, pageSize));
 		int total = studentDao.getStudentListTotal(student);
 		studentDao.closeCon();
 		response.setCharacterEncoding("UTF-8");
 		Map<String, Object> ret = new HashMap<String, Object>();
 		ret.put("total", total);
-		ret.put("rows", classList);
+		ret.put("rows", clazzList);
 		try {
 			String from = request.getParameter("from");
 			if("combox".equals(from)){
-				response.getWriter().write(JSONArray.fromObject(classList).toString());
+				response.getWriter().write(JSONArray.fromObject(clazzList).toString());
 			}else{
 				response.getWriter().write(JSONObject.fromObject(ret).toString());
 			}
@@ -131,15 +131,15 @@ public class StudentServlet extends HttpServlet {
 		String sex = request.getParameter("sex");
 		String mobile = request.getParameter("mobile");
 		String qq = request.getParameter("qq");
-		int classId = Integer.parseInt(request.getParameter("classid"));
+		int clazzId = Integer.parseInt(request.getParameter("clazzid"));
 		Student student = new Student();
-		student.setClassId(classId);
+		student.setClazzId(clazzId);
 		student.setMobile(mobile);
 		student.setName(name);
 		student.setPassword(password);
 		student.setQq(qq);
 		student.setSex(sex);
-		student.setSn(SnGenerateUtil.generateSn(classId));
+		student.setSn(SnGenerateUtil.generateSn(clazzId));
 		StudentDao studentDao = new StudentDao();
 		if(studentDao.addStudent(student)){
 			try {

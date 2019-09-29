@@ -1,6 +1,6 @@
 package com.students.programmer.model;
 
-public class Class {
+public class Clazz {
 	private int id;
 	private String name;
 	private String info;

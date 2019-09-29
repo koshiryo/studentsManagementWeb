@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.students.programmer.model.Admin;
-import com.students.programmer.model.Class;
+import com.students.programmer.model.Clazz;
 import com.students.programmer.model.Page;
 import com.students.programmer.model.Student;
 import com.students.programmer.util.StringUtil;
@@ -16,7 +16,7 @@ import com.students.programmer.util.StringUtil;
 public class StudentDao extends BaseDao {
 	public boolean addStudent(Student student){
 		String sql = "insert into s_student values(null,'"+student.getSn()+"','"+student.getName()+"'";
-		sql += ",'" + student.getPassword() + "'," + student.getClassId();
+		sql += ",'" + student.getPassword() + "'," + student.getClazzId();
 		sql += ",'" + student.getSex() + "','" + student.getMobile() + "'";
 		sql += ",'" + student.getQq() + "',null)";
 		return update(sql);
@@ -27,7 +27,7 @@ public class StudentDao extends BaseDao {
 		sql += ",sex = '" + student.getSex() + "'";
 		sql += ",mobile = '" + student.getMobile() + "'";
 		sql += ",qq = '" + student.getQq() + "'";
-		sql += ",class_id = " + student.getClassId();
+		sql += ",clazz_id = " + student.getClazzId();
 		sql += " where id = " + student.getId();
 		return update(sql);
 	}
@@ -59,7 +59,7 @@ public class StudentDao extends BaseDao {
 			if(resultSet.next()){
 				student = new Student();
 				student.setId(resultSet.getInt("id"));
-				student.setClassId(resultSet.getInt("class_id"));
+				student.setClazzId(resultSet.getInt("clazz_id"));
 				student.setMobile(resultSet.getString("mobile"));
 				student.setName(resultSet.getString("name"));
 				student.setPassword(resultSet.getString("password"));
@@ -81,8 +81,8 @@ public class StudentDao extends BaseDao {
 		if(!StringUtil.isEmpty(student.getName())){
 			sql += "and name like '%" + student.getName() + "%'";
 		}
-		if(student.getClassId() != 0){
-			sql += " and class_id = " + student.getClassId();
+		if(student.getClazzId() != 0){
+			sql += " and clazz_id = " + student.getClazzId();
 		}
 		if(student.getId() != 0){
 			sql += " and id = " + student.getId();
@@ -93,7 +93,7 @@ public class StudentDao extends BaseDao {
 			while(resultSet.next()){
 				Student s = new Student();
 				s.setId(resultSet.getInt("id"));
-				s.setClassId(resultSet.getInt("class_id"));
+				s.setClazzId(resultSet.getInt("clazz_id"));
 				s.setMobile(resultSet.getString("mobile"));
 				s.setName(resultSet.getString("name"));
 				s.setPassword(resultSet.getString("password"));
@@ -115,8 +115,8 @@ public class StudentDao extends BaseDao {
 		if(!StringUtil.isEmpty(student.getName())){
 			sql += "and name like '%" + student.getName() + "%'";
 		}
-		if(student.getClassId() != 0){
-			sql += " and class_id = " + student.getClassId();
+		if(student.getClazzId() != 0){
+			sql += " and clazz_id = " + student.getClazzId();
 		}
 		if(student.getId() != 0){
 			sql += " and id = " + student.getId();
@@ -142,7 +142,7 @@ public class StudentDao extends BaseDao {
 				student.setId(resultSet.getInt("id"));
 				student.setName(resultSet.getString("name"));
 				student.setPassword(resultSet.getString("password"));
-				student.setClassId(resultSet.getInt("class_id"));
+				student.setClazzId(resultSet.getInt("clazz_id"));
 				student.setMobile(resultSet.getString("mobile"));
 				student.setPhoto(resultSet.getBinaryStream("photo"));
 				student.setQq(resultSet.getString("qq"));
