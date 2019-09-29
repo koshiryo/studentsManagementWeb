@@ -54,4 +54,14 @@
   	<url-pattern>/ClazzServlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<description>教师信息管理</description>
+  	<servlet-name>TeacherServlet</servlet-name>
+  	<servlet-class>com.students.programmer.servlet.TeacherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TeacherServlet</servlet-name>
+  	<url-pattern>/TeacherServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
