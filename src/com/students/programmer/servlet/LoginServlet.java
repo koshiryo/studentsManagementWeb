@@ -8,11 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.students.programmer.dao.AdminDao;
-import com.students.programmer.dao.StudentDao;
-import com.students.programmer.dao.TeacherDao;
 import com.students.programmer.model.Admin;
-import com.students.programmer.model.Student;
-import com.students.programmer.model.Teacher;
 
 public class LoginServlet extends HttpServlet {
 
@@ -47,34 +43,7 @@ public class LoginServlet extends HttpServlet {
 				loginStatus = "loginSuccess";
 				break;
 			}
-			case 2:{
-				StudentDao studentDao = new StudentDao();
-				Student student = studentDao.login(name, password);
-				studentDao.closeCon();
-				if(student == null){
-					response.getWriter().write("loginError");
-					return;
-				}
-				HttpSession session = request.getSession();
-				session.setAttribute("user", student);
-				session.setAttribute("userType", type);
-				loginStatus = "loginSuccess";
-				break;
-			}
-			case 3:{
-				TeacherDao teahcerDao = new TeacherDao();
-				Teacher teacher = teahcerDao.login(name, password);
-				teahcerDao.closeCon();
-				if(teacher == null){
-					response.getWriter().write("loginError");
-					return;
-				}
-				HttpSession session = request.getSession();
-				session.setAttribute("user", teacher);
-				session.setAttribute("userType", type);
-				loginStatus = "loginSuccess";
-				break;
-			}
+			//not finished
 			default:
 				break;
 			}
